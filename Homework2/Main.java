@@ -23,14 +23,14 @@ public class Main {
                 calc.setResult(calc.multiplication(calc.getA(), calc.getB()));
                 break;
             case ("/"):
-                if (calc.checkZero(calc.getB())) {
+                if (calc.checkZero(calc.getB(), calc.getOperation())) {
                     calc.setResult(calc.division(calc.getA(), calc.getB()));
                 } else {
                     System.out.println("На ноль делить нельзя");
                 }
                 break;
         }
-        if (calc.checkZero(calc.getB())) {
+        if (calc.checkZero(calc.getB(), calc.getOperation())) {
             System.out.println(calc.getA() + " " + calc.getOperation() + " " +
                     calc.getB() + " = " + calc.getResult());
         }

@@ -61,11 +61,11 @@ public class Calculation implements Operations {
         return "Calculation [a=" + a + ", b=" + b + ", operation=" + operation + ", result=" + result + "]";
     }
 
-    public boolean checkZero(double b) {
-        if (b != 0) {
-            return true;
-        } else {
+    public boolean checkZero(double b, String op) {
+        if (b == 0 && op.equals("/")) {
             return false;
+        } else {
+            return true;
         }
     }
 }
