@@ -1,25 +1,21 @@
 package Homework1;
 
-public abstract class Product {
-    protected String name;
-    protected Integer price;
+public class Product extends Category {
+    protected String nameProduct;
+    protected Double price;
+    protected Integer rank;
 
-    public abstract String getName();
-
-    public abstract void setName(String name);
-
-    public abstract Integer getPrice();
-
-    public abstract void setPrice(Integer price);
-
-    public Product(String name, Integer price) {
-        this.name = name;
+    public Product(String nameProduct, Double price, Integer rank, Category category) {
+        this.nameProduct = nameProduct;
         this.price = price;
+        this.rank = rank;
+        category.productsList.add(this);
     }
 
     @Override
     public String toString() {
-        return "Product [name=" + name + ", price=" + price + "]";
+        return "{nameProduct=" + nameProduct + ", price=" + price + ", rank=" + rank
+                + "}";
     }
 
 }
