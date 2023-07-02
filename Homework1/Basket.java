@@ -11,7 +11,6 @@ public class Basket extends Shop {
 
     public void addToBasket(ArrayList<Category> shopList, String _nameProduct) {
         ArrayList<Category> list = shopList;
-
         for (Category category : list) {
             for (int i = 0; i < category.productsList.size(); i++) {
                 if (category.productsList.get(i).nameProduct.equals(_nameProduct)) {
@@ -24,7 +23,7 @@ public class Basket extends Shop {
 
     @Override
     public String toString() {
-        return "Basket [productsInBasket=" + productsInBasket + "]";
+        return productsInBasket.toString();
     }
 
 }

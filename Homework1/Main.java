@@ -17,14 +17,17 @@ public class Main {
         User usr2 = new User("park2", "321");
         System.out.println("Наличие магазина: ");
         System.out.println(shop.showShop());
+        System.out.println();
         usr1.basket.addToBasket(shop.shopList, "яблоко");
         usr1.basket.addToBasket(shop.shopList, "cola");
         usr2.basket.addToBasket(shop.shopList, "sprite");
         usr2.basket.addToBasket(shop.shopList, "ананас");
         System.out.println("Покупки пользователя " + usr1.getLogin());
         System.out.println(usr1.basket);
+        System.out.println();
         System.out.println("Покупки пользователя " + usr2.getLogin());
         System.out.println(usr2.basket);
+        System.out.println();
         System.out.println("Остаток магазина:");
         System.out.println(shop.showShop());
 

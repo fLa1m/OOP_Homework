@@ -28,7 +28,4 @@ public class Category extends Shop {
         return productsList.toString();
     }
 
-    // protected void addProduct(Product _product) {
-    // productsList.add(_product);
-    // }
 }
