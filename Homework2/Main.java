@@ -1,39 +1,30 @@
-import java.util.Scanner;
+package Homework2;
 
 public class Main {
     public static void main(String[] args) {
-        Calculation calc = new Calculation();
-        Scanner inputScanner = new Scanner(System.in);
-        System.out.println("1ое число: ");
-        calc.setA(inputScanner.nextDouble());
-        System.out.println("Математическая операция (+, -, *, /): ");
-        inputScanner.nextLine();
-        calc.setOperation(inputScanner.nextLine());
-        System.out.println("2ое число: ");
-        calc.setB(inputScanner.nextDouble());
+        Actions[] players = {
+                new Human("Alex", 100, 4),
+                new Cat("Barsik", 150, 6),
+                new Robot("Terminator", 1000, 10)
+        };
 
-        switch (calc.getOperation()) {
-            case ("+"):
-                calc.setResult(calc.addition(calc.getA(), calc.getB()));
-                break;
-            case ("-"):
-                calc.setResult(calc.subtraction(calc.getA(), calc.getB()));
-                break;
-            case ("*"):
-                calc.setResult(calc.multiplication(calc.getA(), calc.getB()));
-                break;
-            case ("/"):
-                if (calc.checkZero(calc.getB(), calc.getOperation())) {
-                    calc.setResult(calc.division(calc.getA(), calc.getB()));
-                } else {
-                    System.out.println("На ноль делить нельзя");
+        Barrier[] track = {
+                new RunningTrack("Дорожка №1", 50),
+                new Wall("Стена №1", 2),
+                new RunningTrack("Дорожка №2", 150),
+                new Wall("Стена №2", 6),
+                new RunningTrack("Дорожка №3", 200),
+                new Wall("Стена №3", 8)
+        };
+
+        for (Actions player : players) {
+            for (Barrier barrier : track) {
+                if (player.isInGame()) {
+                    System.out.println("<" + barrier.getName() + ">");
+                    barrier.overcome(player);
+                    System.out.println("-----");
                 }
-                break;
+            }
         }
-        if (calc.checkZero(calc.getB(), calc.getOperation())) {
-            System.out.println(calc.getA() + " " + calc.getOperation() + " " +
-                    calc.getB() + " = " + calc.getResult());
-        }
-        inputScanner.close();
     }
 }
